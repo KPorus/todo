@@ -2,7 +2,7 @@ import React from 'react';
 import {Text,View, StyleSheet, TouchableOpacity} from 'react-native';
 
 const Todo = (props) => {
-    const {text, number} =props
+    const { text, number, id, handleremove } = props;
     return (
       <View
         style={{ backgroundColor: "#f7f7f7", padding: 15, marginBottom: 10 }}>
@@ -20,10 +20,12 @@ const Todo = (props) => {
               opacity: 0.9,
               borderRadius: 5,
             }}>
-            <Text style={{ color: "#fff", padding: 4, fontSize: 15 }}>{number}</Text>
+            <Text style={{ color: "#fff", padding: 4, fontSize: 15 }}>
+              {number}
+            </Text>
           </View>
 
-          <Text style={{ fontSize: 15, maxWidth:"88%" }}>{text}</Text>
+          <Text style={{ fontSize: 15, maxWidth: "88%" }}>{text}</Text>
 
           <TouchableOpacity
             style={{
@@ -31,7 +33,9 @@ const Todo = (props) => {
               padding: 10,
               borderRadius: 5,
             }}>
-            <Text style={{ color: "#fff" }}>Remove</Text>
+            <Text style={{ color: "#fff" }} onPress={() => handleremove(id)}>
+              Remove
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

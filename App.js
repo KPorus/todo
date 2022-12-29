@@ -12,8 +12,13 @@ export default function App() {
     if (!todo) {
       return;
     }
-
     settodo((prev) => [...prev, { id: prev.length + 1, text: todoContent }]);
+    settodoContent("");
+  };
+
+  const handleremove = (id) => {
+    const newTodo = todo.filter((td) => td.id != id);
+    settodo(newTodo);
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -26,9 +31,15 @@ export default function App() {
           settodoContent={settodoContent}
           todoContent={todoContent}></AddTodo>
         <View>
-          {
-            todo.map((todo, index)=><Todo key={index} number={index+1} text={todo.text} id={todo.id}/>)
-          }
+          {todo.map((todo, index) => (
+            <Todo
+              key={index}
+              number={index + 1}
+              text={todo.text}
+              id={todo.id}
+              handleremove={handleremove}
+            />
+          ))}
         </View>
       </View>
       <StatusBar style='auto' />

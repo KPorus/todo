@@ -29,7 +29,7 @@ const AddTodo = (props) => {
           onChangeText={(text)=>settodoContent(text)}
           style={{
             paddingVertical: 15,
-            paddingHorizontal: 20,
+            paddingHorizontal: 40,
             Width: 250,
             backgroundColor: "#f7f7f7",
             fontWeight: "700",
