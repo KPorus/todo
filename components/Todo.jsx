@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text,View, StyleSheet, TouchableOpacity} from 'react-native';
 
-const Todo = () => {
+const Todo = (props) => {
+    const {text, number} =props
     return (
       <View
         style={{ backgroundColor: "#f7f7f7", padding: 15, marginBottom: 10 }}>
@@ -19,10 +20,10 @@ const Todo = () => {
               opacity: 0.9,
               borderRadius: 5,
             }}>
-            <Text style={{ color: "#fff", padding: 4, fontSize: 15 }}>#1</Text>
+            <Text style={{ color: "#fff", padding: 4, fontSize: 15 }}>{number}</Text>
           </View>
 
-          <Text style={{ fontSize: 15, }}>Hello world</Text>
+          <Text style={{ fontSize: 15, maxWidth:"88%" }}>{text}</Text>
 
           <TouchableOpacity
             style={{
