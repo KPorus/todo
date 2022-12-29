@@ -24,7 +24,14 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ paddingTop: 40, paddingHorizontal: 20 }}>
-        <Text style={{ fontSize: 20, fontWeight: "800", marginBottom: 10 }}>
+        <Text
+          style={{
+            fontSize: 25,
+            fontWeight: "800",
+            marginBottom: 10,
+            textTransform: "uppercase",
+            color: "#8e44ad",
+          }}>
           Todo
         </Text>
         <AddTodo
@@ -32,15 +39,19 @@ export default function App() {
           settodoContent={settodoContent}
           todoContent={todoContent}></AddTodo>
         <View>
-          { todo.length<=0 ?<Text>No Todo</Text>:todo.map((todo, index) => (
-            <Todo
-              key={index}
-              number={index + 1}
-              text={todo.text}
-              id={todo.id}
-              handleremove={handleremove}
-            />
-          ))}
+          {todo.length <= 0 ? (
+            <Text style={{ textAlign: "center", fontSize: 20 }}>No Todos</Text>
+          ) : (
+            todo.map((todo, index) => (
+              <Todo
+                key={index}
+                number={index + 1}
+                text={todo.text}
+                id={todo.id}
+                handleremove={handleremove}
+              />
+            ))
+          )}
         </View>
       </View>
       <StatusBar style='auto' />
