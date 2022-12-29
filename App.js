@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Keyboard } from "react-native";
 import AddTodo from "./components/AddTodo";
 import Todo from "./components/Todo";
 
@@ -12,6 +12,7 @@ export default function App() {
     if (!todo) {
       return;
     }
+    Keyboard.dismiss()
     settodo((prev) => [...prev, { id: prev.length + 1, text: todoContent }]);
     settodoContent("");
   };
@@ -31,7 +32,7 @@ export default function App() {
           settodoContent={settodoContent}
           todoContent={todoContent}></AddTodo>
         <View>
-          {todo.map((todo, index) => (
+          { todo.length<=0 ?<Text>No Todo</Text>:todo.map((todo, index) => (
             <Todo
               key={index}
               number={index + 1}
